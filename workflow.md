@@ -7,3 +7,13 @@
   - Surveyees click on link in email to provide feedback
   - We tabulate feedback
   - User can see report of all survey responses
+
+## Technologies to use
+  - Expressjs
+  - Passportjs
+  - MongoDB
+  - Stripe
+  - Reactjs
+  - Redux
+  - Redux form
+  - Email Provider
