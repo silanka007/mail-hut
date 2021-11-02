@@ -1,5 +1,5 @@
 ## workflow:
-  - User signs up via Google OAuth
+  - User signs in via Google OAuth
   - User pays for email credits via stripe
   - User creates a new 'campaign'
   - User enters list of email to send campaign to
