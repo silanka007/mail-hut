@@ -4,7 +4,7 @@ import "./App.css";
 
 const API_URL =
   process.env.NODE_ENV === "production"
-    ? "https://mail-hut.herokuapp.com/"
+    ? "https://mail-hut.herokuapp.com"
     : "http://localhost:5000";
 
 function App() {
