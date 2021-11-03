@@ -12,7 +12,10 @@ authRouter.get(
 
 authRouter.get(
   "/callback",
-  passport.authenticate("google", { failureRedirect: "/" })
+  passport.authenticate("google", {
+    successRedirect: "/api/user",
+    failureRedirect: "/",
+  })
 );
 
 module.exports = authRouter;
