@@ -11,8 +11,7 @@ function App() {
   const [user, setUser] = useState({});
 
   const googleSignInHandler = async () => {
-    await Axios.get(`${API_URL}/v1/auth/google`);
-    const loggedUser = await Axios.get(`${API_URL}/v1/user`);
+    const loggedUser = await Axios.get(`${API_URL}/v1/auth/google`).data;
     console.log({ loggedUser });
     setUser(loggedUser);
   };
