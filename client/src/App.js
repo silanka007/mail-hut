@@ -1,25 +1,38 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import axios from "axios";
 import "./App.css";
-
-const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://mail-hut.herokuapp.com"
-    : "http://localhost:5000";
 
 function App() {
   const [user, setUser] = useState({});
 
   const googleSignInHandler = async () => {
-    const loggedUser = await Axios.get(`${API_URL}/v1/auth/google`).data;
-    console.log("loggedUser: ", loggedUser.data);
-    setUser(loggedUser);
+    try {
+      const loggedUser = await axios.get("/v1/user");
+      const data = loggedUser.data;
+      console.log("loggedUser: ", data);
+      setUser(data);
+    } catch (error) {
+      console.log(error.messge);
+    }
   };
+
+  const getCookie = (cName) => {
+    console.log('main cookie: ', document.cookie)
+    const cookies = document.cookie.split(";")
+    const cookie = cookies.map(cookie => cookie === cName)[0]
+    console.log({cookies, cookie})
+    return cookie
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <button onClick={googleSignInHandler}>Sign in with Google</button>
+        <a href="/v1/auth/google"> Sign in with Google</a>
         <h2>User ID: {user && user.googleID}</h2>
+        {
+          getCookie("surveyorMH") && "yes user is logged in"
+        }
       </header>
     </div>
   );

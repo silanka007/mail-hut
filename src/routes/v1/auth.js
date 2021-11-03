@@ -14,6 +14,7 @@ authRouter.get(
   "/google/callback",
   passport.authenticate("google", {
     failureRedirect: "/",
+    successRedirect: "/"
   })
 );
 

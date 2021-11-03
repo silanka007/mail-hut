@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
-const cors = require("cors")
 
 const { cookieSecretKey } = require("./config/keys");
 const apiV1Router = require("./routes/v1/api");
@@ -10,13 +9,12 @@ const apiV1Router = require("./routes/v1/api");
 const app = express();
 app.use(express.json());
 app.use(express.static(path.resolve(__dirname, "../public/")));
-app.use(cors())
 
 app.use(
   cookieSession({
     name: "surveyorMH",
     maxAge: 3 * 60 * 1000,
-    keys: [cookieSecretKey],
+    keys: [cookieSecretKey]
   })
 );
 
