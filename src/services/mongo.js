@@ -6,11 +6,15 @@ mongoose.connection.once("open", () => {
 });
 
 mongoose.connection.on("error", (error) => {
-  console.log(error);
+  console.log(error.message);
 });
 
 const mongoConnect = async () => {
-  await mongoose.connect(mongoURI);
+  try {
+    await mongoose.connect(mongoURI);
+  } catch (error) {
+    console.log("there was an error");
+  }
 };
 
 const mongoDisconnect = async () => {
