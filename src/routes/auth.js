@@ -10,6 +10,9 @@ authRouter.get(
   })
 );
 
-authRouter.get("/callback", passport.authenticate("google"));
+authRouter.get(
+  "/callback",
+  passport.authenticate("google", { failureRedirect: "/" })
+);
 
 module.exports = authRouter;
