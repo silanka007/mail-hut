@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import Axios from "axios";
 import "./App.css";
 
-const API_URL = "http://localhost:5000";
+const API_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://mail-hut.herokuapp.com/"
+    : "http://localhost:5000";
 
 function App() {
   const [user, setUser] = useState({});
@@ -10,7 +13,7 @@ function App() {
   const googleSignInHandler = async () => {
     await Axios.get(`${API_URL}/v1/auth/google`);
     const loggedUser = await Axios.get(`${API_URL}/v1/user`);
-    console.log({loggedUser})
+    console.log({ loggedUser });
     setUser(loggedUser);
   };
   return (
