@@ -1,9 +1,9 @@
 const express = require("express");
 const path = require("path");
-const authRouter = require("./routes/auth");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
 const { cookieSecretKey } = require("./config/keys");
+const apiV1Router = require("./routes/v1/api");
 
 const app = express();
 app.use(express.json());
@@ -21,12 +21,7 @@ app.use(passport.session())
 require("./services/passport");
 
 // api routes
-app.use("/auth/google", authRouter);
-
-app.get("/api/user", (req, res) => {
-  console.log(req.user)
-  return res.send(req.user)
-})
+app.use("/v1", apiV1Router);
 
 app.get("/*", (req, res) => {
   return res.sendFile(path.resolve(__dirname, "../public/index.html"));
