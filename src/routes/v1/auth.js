@@ -13,14 +13,13 @@ authRouter.get(
 authRouter.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "/v1/user",
     failureRedirect: "/",
   })
 );
 
 authRouter.get("/logout", (req, res) => {
-  req.logout()
-  return res.json({success: true })
-})
+  req.logout();
+  return res.json({ success: true });
+});
 
 module.exports = authRouter;

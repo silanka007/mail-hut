@@ -12,7 +12,7 @@ function App() {
 
   const googleSignInHandler = async () => {
     const loggedUser = await Axios.get(`${API_URL}/v1/auth/google`).data;
-    console.log({ loggedUser });
+    console.log("loggedUser: ", loggedUser.data);
     setUser(loggedUser);
   };
   return (
