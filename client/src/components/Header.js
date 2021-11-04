@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom"
 import LogoImg from "../assets/img/logo.png"
 
+
 export const Header = () => {
   return (
     <nav style={{background: "#00BAAD"}}>
