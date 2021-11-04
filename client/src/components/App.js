@@ -6,6 +6,7 @@ const Landing = () => <h2>Landing page</h2>;
 const Dashboard = () => <h2>Dashboard page</h2>;
 const NewSurvey = () => <h2>New survey page</h2>;
 
+
 function App() {
   return (
     <div className="App">
