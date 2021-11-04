@@ -3,6 +3,7 @@ import axios from "axios";
 
 const INITIAL_STATE = null;
 
+
 // auth actions
 const fetchUser = () => async (dispatch) => {
   const user = await axios.get("/v1/user");
