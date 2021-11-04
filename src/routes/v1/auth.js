@@ -12,15 +12,15 @@ authRouter.get(
 
 authRouter.get(
   "/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/",
-    successRedirect: "/"
-  })
+  passport.authenticate("google"),
+  (req, res) => {
+    return res.redirect("/survey");
+  }
 );
 
 authRouter.get("/logout", (req, res) => {
   req.logout();
-  return res.json({ success: true });
+  return res.json({status: true})
 });
 
 module.exports = authRouter;
