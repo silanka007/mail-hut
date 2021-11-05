@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import LogoImg from "../assets/img/logo.png";
+import AddCredit from "./AddCredit";
 
 export const Header = () => {
   const { auth } = useSelector((state) => state);
@@ -21,9 +22,15 @@ export const Header = () => {
               <a href="/v1/auth/google">Signin with Google+</a>
             </li>
           ) : (
-            <li>
+            <Fragment>
+              <li>
+                  <AddCredit />
+              </li>
+              <li>
               <a href="/v1/auth/logout">Logout</a>
             </li>
+            </Fragment>
+            
           )}
         </ul>
       </div>
