@@ -6,7 +6,6 @@ import LogoImg from "../assets/img/logo.png";
 
 export const Header = () => {
   const { auth } = useSelector((state) => state);
-  console.log({auth})
 
   return (
     <nav style={{ background: "#00BAAD" }}>
