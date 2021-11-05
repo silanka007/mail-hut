@@ -8,10 +8,14 @@ export const AddCredit = () => {
   return (
     <div>
       <ReactStripeCheckout
+        name="Mail-Hut"
+        description="$5 for 5 credits"
         amount={500}
         token={onToken}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
-      />
+      >
+        <button className="btn">Add Credits</button>
+      </ReactStripeCheckout>
     </div>
   );
 };
