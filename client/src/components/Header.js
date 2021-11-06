@@ -11,9 +11,16 @@ export const Header = () => {
   return (
     <nav style={{ background: "#00BAAD" }}>
       <div className="nav-wrapper container">
-        <Link to="/" className="left brand-logo">
-          <img src={LogoImg} alt="" style={{ width: "140px", marginTop: 8 }} />
-        </Link>
+        {window.innerWidth > 500 && (
+          <Link to="/" className="left brand-logo">
+            <img
+              src={LogoImg}
+              alt=""
+              style={{ width: "140px", marginTop: 8 }}
+            />
+            {console.log("innerwidth: ", window.innerWidth)}
+          </Link>
+        )}
         <ul id="nav-mobile" className="right ">
           {auth === null ? (
             <li>Loading...</li>
@@ -26,7 +33,7 @@ export const Header = () => {
               <li>
                 <AddCredit />
               </li>
-              <li style={{margin: "0 10px"}}>Credits: {auth.credits || 0}</li>
+              <li style={{ margin: "0 10px" }}>Credits: {auth.credits || 0}</li>
               <li>
                 <a href="/v1/auth/logout">Logout</a>
               </li>
