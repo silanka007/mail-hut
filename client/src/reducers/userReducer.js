@@ -5,7 +5,7 @@ const INITIAL_STATE = null;
 
 // auth actions
 export const fetchUser = async () => {
-  const user = await axios.get("/v1/user");
+  const user = await axios.get("/v1/users");
   return {
     type: FETCH_USER,
     payload: user.data,
@@ -14,7 +14,7 @@ export const fetchUser = async () => {
 
 // payment action
 export const processPayment = async(token) => {
-  const user = await axios.post("/v1/user/payment", token)
+  const user = await axios.post("/v1/users/payments", token)
   return {
     type: FETCH_USER,
     payload: user.data

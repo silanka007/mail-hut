@@ -16,4 +16,9 @@ module.exports = function (app) {
       target: "http://localhost:5000",
     })
   );
+  app.use(
+    createProxyMiddleware("/v1/users/*", {
+      target: "http://localhost:5000",
+    })
+  );
 };

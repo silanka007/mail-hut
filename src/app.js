@@ -13,7 +13,7 @@ app.use(express.static(path.resolve(__dirname, "../public/")));
 app.use(
   cookieSession({
     name: "surveyorMH",
-    maxAge: 3 * 60 * 1000,
+    maxAge: 1 * 60 * 60 * 1000,
     keys: [cookieSecretKey]
   })
 );
