@@ -1,10 +1,17 @@
 import React from "react";
 import ReactStripeCheckout from "react-stripe-checkout";
+import { useDispatch } from "react-redux";
+import { processPayment } from "../reducers/userReducer";
 
 export const AddCredit = () => {
-  const onToken = (token) => {
+  const dispatch = useDispatch();
+
+  const onToken = async (token) => {
     console.log({ token });
+    const action = await processPayment(token);
+    dispatch(action);
   };
+  
   return (
     <div>
       <ReactStripeCheckout
