@@ -18,7 +18,6 @@ export const Header = () => {
               alt=""
               style={{ width: "140px", marginTop: 8 }}
             />
-            {console.log("innerwidth: ", window.innerWidth)}
           </Link>
         )}
         <ul id="nav-mobile" className="right ">

@@ -16,7 +16,7 @@ export const AddCredit = () => {
     <div>
       <ReactStripeCheckout
         name="Mail-Hut"
-        description="$5 for 5 credits"
+        description="~ 4242 4242 4242 4242 for testing ~"
         amount={500}
         token={onToken}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
