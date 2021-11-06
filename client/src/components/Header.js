@@ -12,7 +12,7 @@ export const Header = () => {
     <nav style={{ background: "#00BAAD" }}>
       <div className="nav-wrapper container">
         <Link to="/" className="left brand-logo">
-          <img src={LogoImg} alt="" style={{ height: "60px" }} />
+          <img src={LogoImg} alt="" style={{ width: "140px", marginTop: 8 }} />
         </Link>
         <ul id="nav-mobile" className="right ">
           {auth === null ? (
@@ -24,13 +24,13 @@ export const Header = () => {
           ) : (
             <Fragment>
               <li>
-                  <AddCredit />
+                <AddCredit />
               </li>
+              <li style={{margin: "0 10px"}}>Credits: {auth.credits || 0}</li>
               <li>
-              <a href="/v1/auth/logout">Logout</a>
-            </li>
+                <a href="/v1/auth/logout">Logout</a>
+              </li>
             </Fragment>
-            
           )}
         </ul>
       </div>

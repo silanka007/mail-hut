@@ -1,4 +1,4 @@
-import { FETCH_USER } from "../actions";
+import { FETCH_USER } from "../constants";
 import axios from "axios";
 
 const INITIAL_STATE = null;
@@ -12,7 +12,16 @@ export const fetchUser = async () => {
   };
 };
 
-const authReducer = (state = INITIAL_STATE, action) => {
+// payment action
+export const processPayment = async(token) => {
+  const user = await axios.post("/v1/user/payment", token)
+  return {
+    type: FETCH_USER,
+    payload: user.data
+  }
+}
+
+const userReducer = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
     case FETCH_USER:
@@ -22,4 +31,4 @@ const authReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default authReducer;
+export default userReducer;

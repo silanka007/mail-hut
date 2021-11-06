@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { fetchUser } from "../reducers/authReducer";
+import { fetchUser } from "../reducers/userReducer";
 import { Header } from "./Header";
 
 const Landing = () => <h2>Landing page</h2>;
