@@ -19,4 +19,4 @@ const SurveySchema = mongoose.Schema({
   lastResponseDate: Date
 })
 
-module.exports = mongoose.Model("surveys", SurveySchema)
+module.exports = mongoose.model("surveys", SurveySchema)
