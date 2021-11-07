@@ -5,10 +5,22 @@ const stripe = require("stripe")(keys.stripeSecretKey);
 
 const usersRouter = express.Router();
 
+
+/**
+ * @route GET /v1/users
+ * @desc  get user info
+ * @access  private
+ */
 usersRouter.get("/", (req, res) => {
   return res.json(req.user);
 });
 
+
+/**
+ * @route POST /v1/users/payments
+ * @desc  process payment (add credit functionality)
+ * @access  private
+ */
 usersRouter.post("/payments", requireLogin, async (req, res) => {
   try {
     await stripe.charges.create({
