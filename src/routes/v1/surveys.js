@@ -1,7 +1,9 @@
 const express = require("express");
+
 const requireLogin = require("../../middlewares/requireLogin");
 const requireCredit = require("../../middlewares/requireCredit");
 const Survey = require("../../models/Survey");
+const mailer = require("../../services/mailer");
 
 const surveysRouter = express.Router();
 
@@ -19,7 +21,7 @@ surveysRouter.get("/", requireLogin, (req, res) => {
  * @desc  add new survey
  * @access  private
  */
-surveysRouter.post("/", requireLogin, requireCredit, (req, res) => {
+surveysRouter.post("/", requireLogin, requireCredit, async(req, res) => {
   const { title, subject, body, recipients } = req.body;
   if (!title || !subject || !body || !recipients) {
     return res
@@ -34,6 +36,10 @@ surveysRouter.post("/", requireLogin, requireCredit, (req, res) => {
     _user: req.user.id,
     createdDate: Date.now(),
   });
+  const mail = await mailer.send(survey, template);
+  if(mail.response) {
+    await survey.save()
+  }
 });
 
 module.exports = surveysRouter;
